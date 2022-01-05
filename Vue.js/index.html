@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+    />
+    <title>Aprendiendo VueJS</title>
+
+    <style>
+     .glyphicon-check, .glyphicon-unchecked{
+       cursor: pointer;
+     }
+    </style>
+
+
+  </head>
+  <body>
+    <!--Condiciones-->
+    <!--
+	- v-text para mostrar el contenido Pero parpadea
+	- v-show te lo enseña directamente
+	- v-if si se cumple la condicion se muestra
+	- v-else si no se cumple la condicion muestra otro elem
+	-->
+    <div id="app">
+      <h1 v-if="message.length > 2">Hola <span v-text="message"></span></h1>
+      <h1 v-else>Porfavor escribe tu nombre</h1>
+      <input type="text" name="" value=" " v-model="message" />
+
+      <!--V-On: actua cuando se realiza el evento que le pasamos-->
+      <!--Otra manera mas corta de escribirlo es con @  -->
+      <button @click="reverse">Intertir</button>
+
+      <div class="container">
+        <!--Loops-->
+        <h2>Lista de Tareas</h2>
+
+
+        <ul>
+          <li v-for="task in tasks">
+            <span v-text="task.title"></span>
+            <span @click="task.completed = false" ></span>
+            <span @click="task.completed = true" ></span>
+          </li>
+
+          <li class="form-inline">
+            <!--Creamos una nueva variable llamada new Task que es la que recibira todo 
+              Lo que le metamos al elemento
+
+              Llamamos al Metodo add Task con v-on, y luego keyup 
+            Le indicamos la tecla que se debe pulsar para que se ejecute el metodo-->
+            <input v-on:keyup.enter="addTask" v-model="newTask" type="text" />
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <script>
+      var app = new Vue({
+        el: "#app",
+        data: {
+          newTask: "",
+          message: "",
+          tasks: [
+            { title: "Aprendible PHP", completed: true },
+            { title: "Aprendible Laravel", completed: false },
+            { title: "Aprendible VueJS", completed: false },
+          ],
+    
+        },
+        methods: {
+          //TODO:Invertir String
+          reverse: function () {
+            this.message = this.message.split("").reverse().join("");
+          },
+          //TODO: Crear un nuevo elemento en la lista
+          addTask: function () {
+            if (this.newTask.length <= 1) return alert("Tarea vacia");
+            //Con el metodo Push añadimos un nuevo elemento
+            this.tasks.push({
+              title: this.newTask,
+              completed: false,
+            });
+            this.newTask = "";
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
