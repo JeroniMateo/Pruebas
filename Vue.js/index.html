@@ -40,8 +40,8 @@
         <ul>
           <li v-for="task in tasks">
             <span v-text="task.title"></span>
-            <span @click="task.completed=false" v-if="task.completed" ></span>
-            <span @click="task.completed=true" v-else ></span>
+            <span @click="task.completed = false" v-if="task.completed" ></span>
+            <span @click="task.completed = true" v-else ></span>
           </li>
 
           <li class="form-inline">
@@ -50,10 +50,9 @@
 
               Llamamos al Metodo add Task con v-on, y luego keyup 
             Le indicamos la tecla que se debe pulsar para que se ejecute el metodo-->
-            <input v-on:keyup.enter="addTask" v-model="newTask" type="text" />
+            <input v-on:keyup.enter="addTask" v-model="newTask" type="text" >
           </li>
         </ul>
- 
       </div>
     </div>
 
@@ -64,13 +63,12 @@
         el: "#app",
         data: {
           newTask: "",
-          message: "",
+          message:"",
           tasks: [
             { title: "Aprendible PHP", completed: true },
             { title: "Aprendible Laravel", completed: false },
             { title: "Aprendible VueJS", completed: false },
-          ],
-    
+          ]
         },
         methods: {
           addTask: function () {
@@ -79,7 +77,7 @@
             //Con el metodo Push añadimos un nuevo elemento
             this.tasks.push({
               title: this.newTask,
-              completed: false,
+              completed: false
             });
             this.newTask = "";
           },
@@ -88,13 +86,13 @@
           completedTasks: function(){
             console.log('trigger completedTask');
             return this.tasks.filter(function(task){
-              return this.completed;
+              return task.completed;
             }).length;
           },
            incompletedTasks: function(){
             console.log('trigger incompletedTask');
             return this.tasks.filter(function(task){
-              return ! this.completed;
+              return ! task.completed;
             }).length;
           }
         }
