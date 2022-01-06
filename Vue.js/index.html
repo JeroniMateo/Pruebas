@@ -9,11 +9,7 @@
     />
     <title>Aprendiendo VueJS</title>
 
-    <style>
-     .glyphicon-check, .glyphicon-unchecked{
-       cursor: pointer;
-     }
-    </style>
+  
 
 
   </head>
@@ -37,13 +33,15 @@
       <div class="container">
         <!--Loops-->
         <h2>Lista de Tareas</h2>
+        <h4 v-if="completedTasks">Tareas completas {{completedTasks}}</h4>
+        <h4 v-if="incompletedTasks">Tareas incompletas {{incompletedTasks }}</h4>
 
 
         <ul>
           <li v-for="task in tasks">
             <span v-text="task.title"></span>
-            <span @click="task.completed = false" ></span>
-            <span @click="task.completed = true" ></span>
+            <span @click="task.completed=false" v-if="task.completed" ></span>
+            <span @click="task.completed=true" v-else ></span>
           </li>
 
           <li class="form-inline">
@@ -55,6 +53,7 @@
             <input v-on:keyup.enter="addTask" v-model="newTask" type="text" />
           </li>
         </ul>
+ 
       </div>
     </div>
 
@@ -74,13 +73,9 @@
     
         },
         methods: {
-          //TODO:Invertir String
-          reverse: function () {
-            this.message = this.message.split("").reverse().join("");
-          },
-          //TODO: Crear un nuevo elemento en la lista
           addTask: function () {
             if (this.newTask.length <= 1) return alert("Tarea vacia");
+
             //Con el metodo Push añadimos un nuevo elemento
             this.tasks.push({
               title: this.newTask,
@@ -89,6 +84,21 @@
             this.newTask = "";
           },
         },
+        computed:{
+          completedTasks: function(){
+            console.log('trigger completedTask');
+            return this.tasks.filter(function(task){
+              return this.completed;
+            }).length;
+          },
+           incompletedTasks: function(){
+            console.log('trigger incompletedTask');
+            return this.tasks.filter(function(task){
+              return ! this.completed;
+            }).length;
+          }
+        }
+       
       });
     </script>
   </body>
