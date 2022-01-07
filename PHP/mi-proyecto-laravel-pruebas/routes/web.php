@@ -24,24 +24,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('saludo/{nombre?}',function($nombre = "Invitado"){
     return "saludos" . $nombre;
 });
- */
+*/
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-$portfolio=[
-    ['title' => 'Proyecto #1'],
-    ['title' => 'Proyecto #2'],
-    ['title' => 'Proyecto #3'],
-    ['title' => 'Proyecto #4'],
-];
 
 Route::view('/','home')->name('home');
 Route::view('/about','about')->name('about');
 Route::view('/contact','contact')->name('contact');
-Route::view('/portfolio','porfolio',compact('portfolio'))->name('porfolio');
 
+Route::get('/portfolio','PortfolioController')->name('portafolio');
 
 
 
