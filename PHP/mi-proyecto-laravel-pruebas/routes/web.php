@@ -30,15 +30,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/',function(){
-    $nombre = "Mattius";
-    return view('home',compact('nombre')); //compact: ['nombre' => $nombre]
-})->name('home');
+$portfolio=[
+    ['title' => 'Proyecto #1'],
+    ['title' => 'Proyecto #2'],
+    ['title' => 'Proyecto #3'],
+    ['title' => 'Proyecto #4'],
+];
 
 Route::view('/','home')->name('home');
 Route::view('/about','about')->name('about');
 Route::view('/contact','contact')->name('contact');
-Route::view('/portfolio','porfolio')->name('porfolio');
+Route::view('/portfolio','porfolio',compact('portfolio'))->name('porfolio');
 
 
 
