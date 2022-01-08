@@ -17,7 +17,17 @@
 	-->
     <div class="container">
       <div id="app">
+
+<user name="Luis" last-name="Garcia"></user>
+<user name="Jorge"></user>
+
+<br>
+
+
+<!--Creamos una lista de tareas donde podemos añadir nuevas tareas 
+podemos marcarlas como completadas o incompletas-->
         <h2>Lista de Tareas</h2>
+        <!--Aqui decimos si esta completa o incompleta-->
         <h4 v-if="completedTasks">Tareas completas {{completedTasks}}</h4>
         <h4 v-if="incompletedTasks">
           Tareas incompletas {{incompletedTasks }}
