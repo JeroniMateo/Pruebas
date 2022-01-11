@@ -3,7 +3,7 @@
 //aprendible.com = Route::get('/',function)
 //aprendible.com/contacto = Route::get('contacto',function)
 
-use Illuminate\Routing\Route as RoutingRoute;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,9 +29,11 @@ Route::get('saludo/{nombre?}',function($nombre = "Invitado"){
 
 Route::view('/','home')->name('home');
 Route::view('/about','about')->name('about');
+Route::get('/portfolio','PortfolioController@index')->name('portafolio');
 Route::view('/contact','contact')->name('contact');
 
-Route::get('/portfolio','PortfolioController')->name('portafolio');
+
+//Route::apiresource('proyectos','PortfolioController');
 
 
 
