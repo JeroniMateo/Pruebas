@@ -33,7 +33,7 @@ Route::get('/portfolio','PortfolioController@index')->name('portafolio');
 Route::view('/contact','contact')->name('contact');
 
 
-//Route::apiresource('proyectos','PortfolioController');
+
 
 
 
