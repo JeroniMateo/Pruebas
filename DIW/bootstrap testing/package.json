@@ -1,0 +1,19 @@
+{
+    "name": "BOOTSTRAP5-CUSTOMIZE",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+
+    "scripts": {
+        "watch":"sass -- watch scss/custom.scss:scss/custom.css"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISR",
+    "dependencies": {
+        "bootstrap": "^5.1.3"
+    },
+    "devDependencies": {
+        "sass": "1.47.0"	
+    }
+}
