@@ -16,7 +16,23 @@
       "id": 4
     }
   ],
-  "comments": [],
+  "comments": [
+    {
+      "body": "I love this author",
+      "postId": 2,
+      "id": 1
+    },
+    {
+      "body": "Great Book",
+      "postId": 3,
+      "id": 2
+    },
+    {
+      "body": "Interesting Story",
+      "postId": 1,
+      "id": 3
+    }
+  ],
   "profile": {
     "name": "typicode"
   }
