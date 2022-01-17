@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+
+<!--Ex1 Fetch-->    
+    <h1>Example 1</h1>
+    <p>Fetch simple</p>
+  </body>
+  <script>
+    var myAPIurl = 'https://my-json-server.typicode.com/classicoman2/fakeRESTserver/characters/1'
+
+    fetch(myAPIurl)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data)
+      })
+      .catch(function (error) {
+        console.log('Error en el Fetch:', error)
+      })
+  </script>
+
+<!--Exemple 2 Fetch-->
+<h1>Ex 2</h1>
+<script>
+    // cas = 0 : La url de la Rest API és correcta. Petició tipus CORS
+    let url = []
+    url.push('https://my-json-server.typicode.com/classicoman2/fakeRESTserver/characters/1')
+
+    // cas = 1 : La petició és correcta però no és json si no empro  response.json()
+    //   => Error en el fetch:  Unexpected token L in JSON at position 0
+    url.push('./assets/fitxer.txt')
+
+    // cas = 2 : El recurs no existeix en el servidor
+    url.push('https://my-json-server.typicode.com/classicoman2/fakeRESTserver/characters/999')
+
+    // cas = 3 : El nom del servidor és incorrecte
+    url.push('https://whateverlalalawhatever.com')
+
+    // cas = 4 : El servidor és incorrecte i CORS ERROR -=> "Error en el fetch, Failed to Fetch"
+    //   => "Error en el fetch, Failed to Fetch"
+    url.push('https://cifpfbmoll.eu')
+
+    // TRIA EL CAS QUE VOLS PROVAR
+    const cas = 0
+
+    fetch(url[cas])
+      .then(function (response) {
+        console.log('Response.status =', response.status)
+        console.log('Response.type =', response.type)
+        console.log('Response.ok =', response.ok)
+        //return response.text()
+        return response.json()
+      })
+      .then(function (data) {
+        console.log('Les dades retornades:', data)
+      })
+      .catch(function (error) {
+        console.error('Error en el fetch: ', error.message)
+      })
+  </script>
+
+
+</html>
