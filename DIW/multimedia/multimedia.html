@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <style>
+      figure {
+        margin-right: 40px;
+      }
+    </style>
+
+    <title>Pixeled Images vs. No Pixeled Images</title>
+  </head>
+  <body>
+    <div class="flex-column">
+      <div class="m-4">
+        <!-- Imatge Correcta-->
+        <figure class="figure">
+          <img
+            src="assets/semafor-500.jpg" class="figure-img img-fluid rounded"
+            alt="A generic square placeholder image with rounded corners in a figure."
+          />
+          <figcaption class="figure-caption">
+            CORRECTE: Imatge de 500x1000 px ocupa 500x1000</figcaption>
+        </figure>
+
+
+        <!-- Imatge Incorrecta -->
+        <figure class="figure">
+          <img
+            src="assets/semafor-250.jpg" class="figure-img img-fluid rounded"
+            alt="A generic square placeholder image with rounded corners in a figure."
+            style="width: 500px"
+          />
+          <figcaption class="figure-caption">INCORRECTE: Imatge de 250x500 px ocupa 500x1000</figcaption>
+        </figure>
+      </div>
+    </div>
+  </body>
+</html>
