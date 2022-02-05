@@ -1,6 +1,8 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <h2> {{ salutacio }} </h2>
+    
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
       check out the
@@ -35,7 +37,12 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  data(){
+    return{
+    salutacio: "Benvinguts",
   }
+  },
 }
 </script>
 
@@ -54,5 +61,8 @@ li {
 }
 a {
   color: #42b983;
+}
+h2{
+  color: red;
 }
 </style>
