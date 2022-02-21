@@ -6,24 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hello Vue!</title>
     <!-- Vue CDN -->
-    <script src="https://unpkg.com/vue@next"></script>  </head>
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
   <body>
-    <div id="app-5">
-      <p>{{ message }}</p>
-      <button v-on:click="reverseMessage">Reverse Message</button>
+    <div id="app">
+      <H2>Contador:{{ contador }}</H2>
+      <button v-on:click="sumar1">Clica per a sumar 1</button>
     </div>
   </body>
   <script>
-  const app = {
+    const app = {
       data() {
         return {
-          //Definir aqui les propietas de l'app de Vue
-          message: 'Hello Pepe',
+          contador: 0,
         }
       },
-      methods:{
-        reverseMessage: (){
-          this.message = this.message.split('').reverse().join('');
+      methods: {
+        sumar1() {
+          this.contador = this.contador + 1
         },
       },
     }

@@ -9,6 +9,7 @@
   </head>
   <body>
     <div id="app">
+      <h3>Perros: {{ perros.length }}</h3>
       <ol>
         <li v-for="p in perros" :key="p">{{ p.name }}</li>
       </ol>
